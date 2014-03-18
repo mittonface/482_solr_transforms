@@ -10,7 +10,7 @@
 
             <xsl:if test="$RANKVALUE!= ''">
                 <field>
-                    <xsl:attribute name="title">
+                    <xsl:attribute name="name">
                         <xsl:value-of select="concat($prefix, $RANKNAME, $suffix)"/>
                     </xsl:attribute>
                     <xsl:value-of select="$RANKVALUE"/>

@@ -18,5 +18,18 @@
             </xsl:if>
               
         </xsl:for-each> 
+        
+        <xsl:variable name="NORTH" select="eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:boundingCoordinates/eml:northBoundingCoordinate" />
+        
+        <xsl:variable name="WEST" select="eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:boundingCoordinates/eml:westBoundingCoordinate" />
+        
+        <xsl:if test="$NORTH!= '' and $WEST!= ''">
+            <field>
+                <xsl:attribute name="name">
+                    <xsl:value-of select="concat($prefix, 'coordinates', $suffix)"/>
+                </xsl:attribute>
+                <xsl:value-of select="concat($NORTH, ', ', $WEST)"/>
+            </field>
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
